@@ -63,7 +63,7 @@ app.get("/api/users/userBody",(req, res) =>{
 // :user_id는 서버에서 설정한 주소 키 값
 // 값을 찾을 때는 req.params.user_id로 찾는다
 // 주의 -> 경로가 /users/1 혹은 /users/2 같은 경우 둘 다 라우터를 거치게 된다. 때문에 다른 라우터보다 아래에 있어야한다.
-app.get("/api/users/user",(req, res) =>{
+app.get("/api/users/:user_id",(req, res) =>{
   const user_id = req.params.user_id
 
   const user = users.filter(data => data.id == user_id);
@@ -120,7 +120,7 @@ app.patch("/api/user/update/:user_id",(req, res) =>{
 // 데이터 삭제
 app.delete("/api/user/delete",(req, res)=>{
   const user_id = req.query.user_id
-  const user = user.filter(data => data.id != user_id);
+  const user = users.filter(data => data.id != user_id);
 
   res.json({ok: true, users: user})
 })
