@@ -7,7 +7,7 @@ app.use(express.urlencoded({extended: true}));
 
 // 임시 데이터
 const users = [
-  {id: 1, name: "유저"},
+  {id: 1, name: "유저1"},
   {id: 2, name: "유저2"},
   {id: 3, name: "유저3"},
   {id: 4, name: "유저4"},
@@ -125,4 +125,4 @@ app.delete("/api/user/delete",(req, res)=>{
   res.json({ok: true, users: user})
 })
 
-app.listen(3000, () => console.log("노드 테스트2"));
+app.listen(3000, () => console.log("Listening on port 3000"));
